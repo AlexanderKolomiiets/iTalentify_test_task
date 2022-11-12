@@ -1,21 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
 @import "utils";
 @import "fonts";
 
 body {
   background: #030201;
-  font-family: "Cambria";
+  font-family: "Cambria", sans-serif;
   margin: 0;
   padding: 0;
 }
 
-h1, h2 {
+h1,
+h2 {
   margin: 0;
 }
 
 .witcher {
   &__image {
-    background-image: url('../images/witcher.png'), url('../images/sparks_back.png');
+    background-image: url("../images/witcher.png"), url("../images/sparks_back.png");
     background-size: contain, contain;
     background-repeat: no-repeat;
     background-position: bottom, bottom;
@@ -25,7 +26,7 @@ h1, h2 {
     display: grid;
     grid-template-columns: 7fr 5fr;
     column-gap: 60px;
-    background-image: url('../images/witcher_bg.png');
+    background-image: url("../images/witcher_bg.png");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -65,7 +66,7 @@ h1, h2 {
   &__code {
     display: flex;
     margin: 60px 0;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     align-items: center;
     padding: 10px 20px;
     border: 1px dashed #464646;
