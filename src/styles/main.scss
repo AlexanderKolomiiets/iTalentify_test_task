@@ -25,11 +25,11 @@ p {
 }
 
 @keyframes move {
-	from {
+  0% {
     background-position: 50%, 50%;
     filter: contrast(1.1);
   }
-	to {
+  100% {
     background-position: 0, 0;
     filter: contrast(1);
   }
@@ -75,7 +75,7 @@ p {
       grid-column: 2;
       justify-items: center;
       align-content: center;
-      min-height: calc(100vh - 80px);
+      min-height: calc(100vh - 120px);
       padding: 0 40px;
     }
   }
@@ -207,26 +207,18 @@ p {
     @include onTablet {
       flex-direction: row;
       justify-content: space-between;
-      margin: 0 100px;
+      margin: 0 100px 40px;
     }
 
     &__link {
       display: flex;
       margin-bottom: 20px;
-
-      @include onDesktop {
-        margin-bottom: 40px;
-      }
-
-      @include onLargeDesktop {
-        margin-bottom: 20px;
-      }
     }
 
     &__logo {
       width: 140px;
 
-      @include onLargeDesktop {
+      @include onDesktop {
         width: initial;
       }
     }
