@@ -26,12 +26,12 @@ p {
 
 @keyframes move {
   0% {
-    background-position: 50%, 50%;
-    filter: contrast(1.1);
+    background-position: bottom center, bottom center;
+    filter: contrast(1.2) sepia(0.4);
   }
   100% {
-    background-position: 0, 0;
-    filter: contrast(1);
+    background-position: bottom left, bottom left;
+    filter: contrast(1) sepia(0);
   }
 }
 
@@ -47,6 +47,7 @@ p {
     animation: move 2.5s forwards;
     background-image: url("../images/witcher.png"), url("../images/sparks.png"), url("../images/witcher_bg.png");
     background-size: contain, contain, cover;
+    background-position: bottom left, bottom left, center;
   }
 
   &__content {
