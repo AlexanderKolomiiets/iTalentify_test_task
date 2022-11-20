@@ -4,10 +4,10 @@
 body {
   background: #030201;
   font-family: "Cambria", sans-serif;
-  margin: 0;
   padding: 0;
 }
 
+body,
 h1,
 h2,
 h3,
@@ -16,44 +16,50 @@ p {
 }
 
 @keyframes fade {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes move {
+	from {
+    background-position: 50%, 50%;
+    filter: contrast(1.1);
+  }
+	to {
+    background-position: 0, 0;
+    filter: contrast(1);
+  }
 }
 
 .witcher {
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   background-image: url("../images/witcher_bg.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 
-
-  &__image {
-    opacity: 0;
-    animation: fade 4s forwards;
-    background-image: url("../images/witcher.png"), url("../images/sparks_back.png");
-    background-size: contain, contain;
-    background-repeat: no-repeat;
-    background-position: bottom, bottom;
-
-    @include onTablet {
-      display: block;
-    }
+  @include onDesktop {
+    animation: move 2.5s forwards;
+    background-image: url("../images/witcher.png"), url("../images/sparks_back.png"), url("../images/witcher_bg.png");
+    background-position: left, left, center;
+    background-size: contain, contain, cover;
+    background-position-y: bottom;
+    background-position-x: left;
   }
 
   &__content {
-    padding: 0 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    display: grid;
+    align-content: center;
+    margin: 0 auto 20px;
 
-    @include onTablet {
-      height: 100vh;
-      display: grid;
-      grid-template-columns: 7fr 5fr;
+    @include onDesktop {
+      grid-template-columns: 7fr 6fr;
+      margin: 0;
     }
   }
 
@@ -62,6 +68,16 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: calc(100vh - 130px);
+
+    @include onTablet {
+      display: grid;
+      grid-column: 2;
+      justify-items: center;
+      align-content: center;
+      min-height: calc(100vh - 80px);
+      padding: 0 40px;
+    }
   }
 
   &__title {
@@ -69,7 +85,7 @@ p {
     font-size: 80px;
     font-weight: 700;
 
-    @include onDesktop {
+    @include onTablet {
       font-size: 120px;
     }
 
@@ -84,7 +100,7 @@ p {
     font-weight: 700;
     text-transform: uppercase;
 
-    @include onDesktop {
+    @include onTablet {
       font-size: 40px;
     }
 
@@ -108,9 +124,9 @@ p {
     &__text {
       position: relative;
       padding: 15px 15px 15px 25px;
+      color: #f73427;
       font-size: 25px;
       font-weight: 400;
-      color: #f73427;
       letter-spacing: 4px;
       text-transform: uppercase;
 
@@ -127,14 +143,14 @@ p {
       position: absolute;
       right: 0;
       bottom: 0;
-      background: #464646;;
+      background: #464646;
     }
 
     &__button {
       padding: 15px 25px 15px 15px;
+      color: #fff;
       font-size: 12px;
       font-weight: 400;
-      color: #fff;
       letter-spacing: 2px;
       text-transform: uppercase;
       transition: color 0.3s;
@@ -157,20 +173,15 @@ p {
 
   &__button {
     padding: 20px 60px;
-    font-size: 15px;
-    font-weight: 500;
     color: #fff;
     background-color: #f73427;
-    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 500;
     border: none;
     border-radius: 40px;
+    text-transform: uppercase;
     transition: background 0.3s;
     cursor: pointer;
-
-
-    @include onDesktop {
-      padding: 20px 80px;
-    }
 
     @include onLargeDesktop {
       padding: 30px 120px;
@@ -187,34 +198,28 @@ p {
   }
 
   &__footer {
-    position: relative;
-    width: 100%;
+    animation: fade 5s forwards;
     display: flex;
-    gap: 30px;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 30px;
 
     @include onTablet {
-      bottom: 30px;
       flex-direction: row;
       justify-content: space-between;
-      align-items: flex-end;
-    }
-
-    @include onLargeDesktop {
-      bottom: 60px;
+      margin: 0 100px;
     }
 
     &__link {
       display: flex;
+      margin-bottom: 20px;
 
-      @include onTablet {
-        position: absolute;
-        left: 50px;
+      @include onDesktop {
+        margin-bottom: 40px;
       }
 
       @include onLargeDesktop {
-        left: 70px;
+        margin-bottom: 20px;
       }
     }
 
@@ -227,20 +232,11 @@ p {
     }
 
     &__terms {
-      font-family: "Inter", sans-serif;
-      letter-spacing: 1px;
       color: #464646;
       font-size: 14px;
       font-weight: 400;
-
-      @include onTablet {
-        position: absolute;
-        right: 50px;
-      }
-
-      @include onLargeDesktop {
-        right: 70px;
-      }
+      font-family: "Inter", sans-serif;
+      letter-spacing: 1px;
     }
   }
 }
