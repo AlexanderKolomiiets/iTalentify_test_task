@@ -45,11 +45,8 @@ p {
 
   @include onDesktop {
     animation: move 2.5s forwards;
-    background-image: url("../images/witcher.png"), url("../images/sparks_back.png"), url("../images/witcher_bg.png");
-    background-position: left, left, center;
+    background-image: url("../images/witcher.png"), url("../images/sparks.png"), url("../images/witcher_bg.png");
     background-size: contain, contain, cover;
-    background-position-y: bottom;
-    background-position-x: left;
   }
 
   &__content {
@@ -131,7 +128,7 @@ p {
       text-transform: uppercase;
 
       @include onLargeDesktop {
-        padding: 15px 25px 15px 35px;
+        padding: 20px 25px 20px 35px;
         font-size: 40px;
       }
     }
